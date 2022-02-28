@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         if(ParseUser.getCurrentUser() != null){
-            goMainActivity();
+            goTimelineActivity();
         }
 
         etUsername = findViewById(R.id.etUsername);
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Sign up failed!", Toast.LENGTH_LONG).show();
                     return;
                 }
-                goMainActivity();
+                goTimelineActivity();
                 Toast.makeText(LoginActivity.this, "Signed up successfully!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -89,14 +89,14 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"Invalid username or password", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                goMainActivity();
+                goTimelineActivity();
                 Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void goMainActivity() {
-        Intent i = new Intent(this, MainActivity.class);
+    private void goTimelineActivity() {
+        Intent i = new Intent(this, TimelineActivity.class);
         startActivity(i);
     }
 
