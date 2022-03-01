@@ -25,6 +25,8 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import org.parceler.Parcels;
+
 import java.io.File;
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private File photoFile;
     public String photoFileName = "photo.jpg";
     ActionBar actionBar;
+    List<Post> posts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(caption, currentUser, photoFile);
+
+                Post post = getRecentPost();
+                Intent intent = new Intent();
+                intent.putExtra("post", Parcels.wrap(post));
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }
@@ -144,8 +153,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /*
-    private void queryPosts() {
+    private void goTimelineActivity() {
+        Intent i = new Intent(this, TimelineActivity.class);
+        startActivity(i);
+    }
+
+    private Post getRecentPost() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.findInBackground(new FindCallback<Post>() {
@@ -155,12 +168,8 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "issue getting posts", e);
                     return;
                 }
-                for(Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
-                }
             }
         });
+        return posts.get(-1);
     }
-
-     */
 }

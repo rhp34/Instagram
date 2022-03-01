@@ -5,12 +5,15 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.util.Date;
+
 @ParseClassName("Post")
 public class Post extends ParseObject {
 
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
+    public static final String KEY_CREATEDAT = "createdAt";
 
     public String getDescription() {
         return getString(KEY_DESCRIPTION);
@@ -39,4 +42,13 @@ public class Post extends ParseObject {
     public String getUsername() {
         return getString(KEY_USER);
     }
+
+    public Date getCreatedAt() {
+        return getDate(KEY_CREATEDAT);
+    }
+
+    public void setCreatedAt(Date date) {
+        put(KEY_CREATEDAT, date);
+    }
+
 }
