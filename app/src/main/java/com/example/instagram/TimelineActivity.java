@@ -1,6 +1,7 @@
 package com.example.instagram;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,7 +26,7 @@ public class TimelineActivity extends AppCompatActivity {
     RecyclerView rvPosts;
     List<Post> posts;
     TimelineAdapter adapter;
-    Toolbar tbToolbar;
+    ActionBar actionBar;
 
     public static final String TAG = "TimelineActivity";
     private final int REQUEST_CODE = 905;
@@ -42,11 +43,16 @@ public class TimelineActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvPosts.setLayoutManager(layoutManager);
         rvPosts.setAdapter(adapter);
-        getSupportActionBar().setIcon(R.drawable.nux_dayone_landing_logo);
+        actionBar = getSupportActionBar();
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.nux_dayone_landing_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         populateTimeline();
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,12 +66,21 @@ public class TimelineActivity extends AppCompatActivity {
             goMainActivity();
             return true;
         }
+        if(item.getItemId() == R.id.mProfile){
+            goProfileActivity();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
 
     private void goMainActivity() {
         Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+    }
+
+    private void goProfileActivity() {
+        Intent i = new Intent(this, ProfileActivity.class);
         startActivity(i);
     }
 

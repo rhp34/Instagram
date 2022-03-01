@@ -1,5 +1,6 @@
 package com.example.instagram;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnPost;
     private File photoFile;
     public String photoFileName = "photo.jpg";
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         btnTakePicture = findViewById(R.id.btnTakePicture);
         ivPicture = findViewById(R.id.ivPicture);
         btnPost = findViewById(R.id.btnPost);
+        actionBar = getSupportActionBar();
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.nux_dayone_landing_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
     private void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
@@ -152,4 +161,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+     */
 }

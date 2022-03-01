@@ -75,7 +75,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="34dp"
         android:layout_marginEnd="0dp"
-        android:background="#636363"
+        android:background="@color/cardview_dark_background"
         android:ems="10"
         android:gravity="top"
         android:inputType="textPersonName"
