@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTakePicture;
     private ImageView ivPicture;
     private Button btnPost;
+    private ProgressBar pbLoading;
     private File photoFile;
     public String photoFileName = "photo.jpg";
     ActionBar actionBar;
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         btnTakePicture = findViewById(R.id.btnTakePicture);
         ivPicture = findViewById(R.id.ivPicture);
         btnPost = findViewById(R.id.btnPost);
+        pbLoading = findViewById(R.id.pbLoading);
+        pbLoading.setVisibility(ProgressBar.VISIBLE);
         actionBar = getSupportActionBar();
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
