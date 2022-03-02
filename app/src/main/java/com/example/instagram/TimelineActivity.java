@@ -16,12 +16,15 @@ import android.view.MenuItem;
 import android.widget.Toolbar;
 
 import com.parse.FindCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -48,6 +51,8 @@ public class TimelineActivity extends AppCompatActivity {
         rvPosts.setLayoutManager(layoutManager);
         rvPosts.setAdapter(adapter);
         actionBar = getSupportActionBar();
+        //Post post = new Post();
+        //ParseUser currentUser = post.getUser();
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.nux_dayone_landing_logo);
@@ -105,6 +110,7 @@ public class TimelineActivity extends AppCompatActivity {
     private void populateTimeline() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
+        query.whereContainedIn(Post.KEY_USER, Collections.singletonList(ParseUser.getCurrentUser()));
         query.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> posts, ParseException e) {
