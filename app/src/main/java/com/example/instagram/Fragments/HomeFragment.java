@@ -8,6 +8,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +33,7 @@ public class HomeFragment extends Fragment {
     List<Post> posts;
     TimelineAdapter adapter;
     ActionBar actionBar;
+    SwipeRefreshLayout swipeContainer;
 
     public static final String TAG = "TimelineActivity";
     private final int REQUEST_CODE = 905;
@@ -56,11 +58,23 @@ public class HomeFragment extends Fragment {
         rvPosts = view.findViewById(R.id.rvPosts);
         posts = new ArrayList<>();
         adapter = new TimelineAdapter(getContext(), posts);
+        swipeContainer = view.findViewById(R.id.swipeContainer);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rvPosts.setLayoutManager(layoutManager);
         rvPosts.setAdapter(adapter);
 
+
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.i(TAG, "fetching new data");
+                populateTimeline();
+            }
+        });
+
         populateTimeline();
+
     }
 
     private void populateTimeline() {
@@ -81,6 +95,7 @@ public class HomeFragment extends Fragment {
                 };
                 adapter.clear();
                 adapter.addAll(posts);
+                swipeContainer.setRefreshing(false);
             }
         });
     }
