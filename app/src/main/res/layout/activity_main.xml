@@ -8,65 +8,11 @@
     android:background="#222121"
     tools:context=".MainActivity">
 
-
-    <Button
-        android:id="@+id/btnTakePicture"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/blue"
-        android:text="Take Picture" />
-
-    <ImageView
-        android:id="@+id/ivPicture"
+    <FrameLayout
+        android:id="@+id/flContainer"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/btnTakePicture"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="14dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <EditText
-        android:id="@+id/etCaption"
-        android:layout_width="wrap_content"
-        android:layout_height="75dp"
-        android:layout_above="@+id/btnPost"
-        android:layout_below="@+id/ivPicture"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="92dp"
-        android:background="#636363"
-        android:ems="10"
-        android:hint="Write a caption..."
-        android:textColor="@color/white" />
-
-    <Button
-        android:id="@+id/btnPost"
-        android:layout_width="198dp"
-        android:layout_height="52dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="87dp"
-        android:backgroundTint="@color/blue"
-        android:text="Post" />
-
-    <ProgressBar
-        android:id="@+id/pbLoading"
-        android:visibility="invisible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

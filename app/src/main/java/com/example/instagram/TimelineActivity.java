@@ -43,14 +43,6 @@ public class TimelineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
 
-
-        rvPosts = findViewById(R.id.rvPosts);
-        posts = new ArrayList<>();
-        adapter = new TimelineAdapter(this, posts);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        rvPosts.setLayoutManager(layoutManager);
-        rvPosts.setAdapter(adapter);
-        actionBar = getSupportActionBar();
         //Post post = new Post();
         //ParseUser currentUser = post.getUser();
         getSupportActionBar().setTitle("");
@@ -58,7 +50,6 @@ public class TimelineActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.nux_dayone_landing_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        populateTimeline();
 
     }
 
@@ -104,28 +95,6 @@ public class TimelineActivity extends AppCompatActivity {
     private void goProfileActivity() {
         Intent i = new Intent(this, ProfileActivity.class);
         startActivity(i);
-    }
-
-
-    private void populateTimeline() {
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.whereContainedIn(Post.KEY_USER, Collections.singletonList(ParseUser.getCurrentUser()));
-        query.include(Post.KEY_USER);
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if(e != null) {
-                    Log.e(TAG, "issue getting posts", e);
-                    return;
-                }
-                for(Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername() + ", date created: " + post.getCreatedAt());
-                }
-                Collections.reverse(posts);
-                adapter.clear();
-                adapter.addAll(posts);
-            }
-        });
     }
 
 }
