@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         ivPicture = findViewById(R.id.ivPicture);
         btnPost = findViewById(R.id.btnPost);
         pbLoading = findViewById(R.id.pbLoading);
-        pbLoading.setVisibility(ProgressBar.VISIBLE);
         actionBar = getSupportActionBar();
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -74,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pbLoading.setVisibility(ProgressBar.VISIBLE);
                 String caption = etCaption.getText().toString();
                 if (caption.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Caption cannot be empty", Toast.LENGTH_LONG).show();

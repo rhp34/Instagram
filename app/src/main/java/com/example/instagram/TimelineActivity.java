@@ -109,8 +109,8 @@ public class TimelineActivity extends AppCompatActivity {
 
     private void populateTimeline() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.include(Post.KEY_USER);
         query.whereContainedIn(Post.KEY_USER, Collections.singletonList(ParseUser.getCurrentUser()));
+        query.include(Post.KEY_USER);
         query.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> posts, ParseException e) {
