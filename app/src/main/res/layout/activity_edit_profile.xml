@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222121"
-    tools:context=".Fragments.PostFragment">
+    android:background="@color/cardview_dark_background"
+    tools:context=".EditProfileActivity">
 
     <Button
         android:id="@+id/btnTakePictureProf"
@@ -58,11 +58,7 @@
         android:layout_marginEnd="105dp"
         android:layout_marginBottom="87dp"
         android:backgroundTint="@color/blue"
-        android:text="Post" />
+        android:text="Save" />
 
-    <ProgressBar
-        android:id="@+id/pbLoading"
-        android:visibility="invisible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
 </RelativeLayout>

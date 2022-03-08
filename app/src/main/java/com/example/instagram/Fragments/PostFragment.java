@@ -25,7 +25,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.instagram.MainActivity;
 import com.example.instagram.Post;
 import com.example.instagram.R;
 import com.parse.FindCallback;
@@ -34,8 +33,6 @@ import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-
-import org.parceler.Parcels;
 
 import java.io.File;
 import java.util.List;
@@ -69,10 +66,10 @@ public class PostFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        etCaption = view.findViewById(R.id.etCaption);
-        btnTakePicture = view.findViewById(R.id.btnTakePicture);
-        ivPicture = view.findViewById(R.id.ivPicture);
-        btnPost = view.findViewById(R.id.btnPost);
+        etCaption = view.findViewById(R.id.etDescription);
+        btnTakePicture = view.findViewById(R.id.btnTakePictureProf);
+        ivPicture = view.findViewById(R.id.ivPictureProf);
+        btnPost = view.findViewById(R.id.btnSave);
         pbLoading = view.findViewById(R.id.pbLoading);
 
         btnTakePicture.setOnClickListener(new View.OnClickListener() {

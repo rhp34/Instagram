@@ -68,7 +68,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             super(itemView);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivPost = itemView.findViewById(R.id.ivPost);
-            etCaption = itemView.findViewById(R.id.etCaption);
+            etCaption = itemView.findViewById(R.id.etDescription);
         }
 
         public void bind(Post post) throws ParseException {

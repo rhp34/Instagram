@@ -67,7 +67,7 @@
         app:srcCompat="@drawable/direct" />
 
     <EditText
-        android:id="@+id/etCaption"
+        android:id="@+id/etDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/divider2"
@@ -87,6 +87,6 @@
         android:id="@+id/divider3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/etCaption"
+        android:layout_below="@+id/etDescription"
         android:background="?android:attr/listDivider" />
 </RelativeLayout>
