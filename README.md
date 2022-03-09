@@ -39,6 +39,7 @@ Here's a walkthrough of implemented user stories:
 <img src='IGgif2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='IGgif3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='IGgif4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='IGgif5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
